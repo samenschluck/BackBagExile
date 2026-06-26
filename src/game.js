@@ -1027,11 +1027,10 @@ class Game {
       }
     }
 
-    // Proceed to battle button (if no items being dragged)
+    // Proceed to battle button (fixed at bottom, matches renderer)
     const gridW = bp.cellSize * BACKPACK_COLS;
-    const gridH = bp.cellSize * BACKPACK_ROWS;
-    const battleBtnY = bp.gridOriginY + gridH + 45;
-    if (px >= bp.gridOriginX && px <= bp.gridOriginX + gridW && py >= battleBtnY - 20 && py <= battleBtnY + 20) {
+    const battleBtnY = this.H - 30;
+    if (px >= bp.gridOriginX && px <= bp.gridOriginX + gridW && py >= battleBtnY - 22 && py <= battleBtnY + 22) {
       this.changeState(GAME_STATES.BATTLE);
     }
   }

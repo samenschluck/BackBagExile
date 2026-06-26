@@ -212,13 +212,14 @@ class Renderer {
     const shopW = w - shopX - 10;
     this.drawShopPanel(ctx, shopX, gridY - 40, shopW, h - gridY + 30, t);
 
-    // Synergies panel (bottom)
-    const synPanelH = Math.max(0, h - (gridY + gridH) - 65);
-    this.drawSynergiesPanel(ctx, gridX, gridY + gridH + 10, gridW, synPanelH);
+    // Battle start button (fixed at bottom)
+    const battleBtnY = h - 30;
+    // Synergies panel (between grid and button)
+    const synPanelTop = gridY + gridH + 10;
+    const synPanelH = Math.max(0, battleBtnY - 25 - synPanelTop);
+    this.drawSynergiesPanel(ctx, gridX, synPanelTop, gridW, synPanelH);
 
-    // Battle start button
-    const battleBtnY = gridY + gridH + Math.max(synPanelH + 10, 10) + 30;
-    this.drawButton(ctx, gridX + gridW/2, Math.min(battleBtnY, h - 30), gridW - 10, 40, '⚔️ IN KAMPF!', '#5a1a8a', '#FFD700', t, true);
+    this.drawButton(ctx, gridX + gridW/2, battleBtnY, gridW - 10, 44, '⚔️ IN KAMPF!', '#5a1a8a', '#FFD700', t, true);
 
     ctx.restore();
   }
